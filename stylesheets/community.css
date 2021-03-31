@@ -1,0 +1,115 @@
+a:link, .community-text:link {
+    text-decoration: none;!important
+}
+
+.community-text:link, .community-text:visited {
+    color:  white;
+}
+
+.gradient {
+    height: 80px;
+    width: 100%;
+    display: block;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 0px 0px black;
+}
+
+.container {
+    position: relative;
+    /*text-align: center;*/
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.community-text {
+    font-size: 70px;
+    text-decoration: none;
+}
+
+.community-text:link, .community-text:visited {
+    color:  white;
+}
+
+.btn {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.disable-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+hr{
+    /*margin-bottom:5px;
+    margin-top:0px;*/
+    margin:0;
+}
+
+.post-container {
+    z-index: 1;
+    margin: 15px;
+    border: 1px solid black;
+}
+
+.post-body{
+    color:lightgray;
+}
+
+.post-details {
+    display: inline;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+.post-info{
+    font-family: sans-serif;
+    font-size: 0.8rem;
+}
+
+.post-options {
+    display: inline;
+    font-size: 20px;
+    margin-left: 10px;
+
+}
+
+.post-text {
+    overflow: hidden;
+}
+
+.post-thumbs{
+    position: relative;
+    z-index: 5;
+}
+
+.post-time {
+    color: darkgray;
+    font-size: 0.8rem;
+}
+
+.post-title {
+    display: inline;
+    font-size: 28px;
+    margin-left: 10px;
+}
+
+.thumbnail:hover {
+
+}
+
+.submitButton {
+    float: right;
+}

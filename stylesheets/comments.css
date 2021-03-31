@@ -1,0 +1,100 @@
+a:link, .community-text:link {
+    text-decoration: none;!important
+}
+
+.community-text:link, .community-text:visited {
+    color:  white;
+}
+
+.gradient {
+    height: 80px;
+    width: 100%;
+    display: block;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 0px 0px black;
+}
+
+.container {
+    position: relative;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.community-text {
+    font-size: 70px;
+    text-decoration: none;
+}
+
+.community-text:link, .community-text:visited {
+    color:  white;
+}
+
+textarea {
+    width: 100%;
+}
+
+.card-group .thumb-card {
+    flex: 1 0 15%;
+    max-width: 15%;
+}
+
+.comment-every {
+    margin: 0px 50px 10px 50px;
+    max-width: fit-content;
+
+}
+
+.container-entire {
+    border-style: solid;
+    border-color: black;
+    min-width: 400px;
+    position: relative;
+    padding: 10px;
+}
+
+.container-thumbs {
+    float: left;
+    border-style: solid;
+    border-color: transparent;
+    padding: 10px;
+    font-size: 18px;
+    position: relative;
+    margin: 37px 20px -50px 0px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.container-details {
+
+}
+
+.container-info {
+    display: inline;
+    margin: 2px 12px 0px 2px;
+}
+
+.container-info2 {
+    display: inline;
+
+}
+
+.container-comment {
+    display: inline;
+}
+
+.comment-content {
+    font-size: 18px;
+}
+
+.card-img-bottom {
+    max-width: 50%;
+    margin:auto;
+}

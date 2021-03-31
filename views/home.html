@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Hardware Talk - Home</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/home.css"></link>
+
+    <!-- Custom styles for this template -->
+    <!--<link href="" rel="stylesheet">-->
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand" href="{{@BASE}}">
+            <img src="images/logo.png"
+                 width="30"
+                 height="30"
+                 class="d-inline-block align-top"
+                 alt="hardware talk logo">
+            <strong>Hardware Talk</strong>
+        </a>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <check if="{{@SESSION.loggedin==true}}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="16"
+                                 height="16"
+                                 fill="currentColor"
+                                 class="bi bi-person-fill"
+                                 viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            </svg>
+                            {{@SESSION.user->getUsername()}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout" id="logout">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="16"
+                                 height="16"
+                                 fill="gray"
+                                 class="bi bi-box-arrow-in-right"
+                                 viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                                <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                            </svg>
+                            Logout
+                        </a>
+                    </li>
+                </check>
+                <check if="{{@SESSION.loggedin==false}}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="16"
+                                 height="16"
+                                 fill="currentColor"
+                                 class="bi bi-person-fill"
+                                 viewBox="0 0 16 16"
+                            >
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            </svg>
+                            Login
+                        </a>
+                    </li>
+                </check>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main role="main">
+
+    <!-- Jumbotron with community info -->
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Communities</h1>
+            <p class="lead text-muted">As a member, you can join specific communities which will put the content you want to see right in your home feed! Below are some examples of popular posts from some of these communities.</p>
+            <p>
+                <check if="{{ @SESSION.loggedin == false }}">
+                    <a href="login" class="btn btn-primary my-2">Member Login</a>
+                    <a href="register" class="btn btn-secondary my-2">Member Registration</a>
+                </check>
+            </p>
+        </div>
+    </section>
+
+    <!-- Repeated communities listed with top post -->
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <repeat group="{{@communities}}" value="{{@community}}">
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <div class="container">
+                                <img class="card-img-top gradient"
+                                     alt="Card image cap"
+                                     src="images/communities/{{@community.community_image}}">
+                                <div class="centered disable-select">
+                                    <p>
+                                        <a href="community/{{@community.community_id}}"
+                                           class="community-text">
+                                            {{@community.community_name}}
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="container text-container">
+                                    <a href="community/{{@community.community_id}}/{{@community.post_id}}">
+                                        <check if="{{@community.post_type == 1}}">
+                                            <img class="thumbnail" src="{{@community.post_media}}">
+                                        </check>
+                                        <check if="{{@community.post_type == 0}}">
+                                            <img class="thumbnail" src="images/thumbnails/text.png">
+                                        </check>
+                                        <check if="{{@community.post_id < 1}}">
+                                            <p class="card-text">No Posts Submitted Yet!</p>
+                                        </check>
+                                        <check if="{{@community.post_id > 0}}">
+                                            <p class="card-text">{{@community.post_subject}}</p>
+                                        </check>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </repeat>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- Back to top button -->
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Back to top</a>
+        </p>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
